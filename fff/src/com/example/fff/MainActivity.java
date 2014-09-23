@@ -1,7 +1,9 @@
 package com.example.fff;
 
-import android.support.v7.app.ActionBarActivity;
+import org.json.JSONException;
+
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -12,6 +14,23 @@ public class MainActivity extends ActionBarActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		new Thread(){
+
+			@Override
+			public void run() {
+				try {
+					VideoTools manager = new VideoTools();
+					String jsonUrl = manager.getVideoUrl("http://v.youku.com/v_show/id_XNzg4NDEyNDQw_ev_1.html");
+					System.out.println(jsonUrl.split("#").length);
+					Log.i(".......", ""+jsonUrl.split("#"));
+				} catch (JSONException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+			}
+			
+		}.start();
 		Log.i("","");
 	}
 
