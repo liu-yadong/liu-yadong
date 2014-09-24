@@ -21,8 +21,8 @@ public class MainActivity extends ActionBarActivity {
 				try {
 					VideoTools manager = new VideoTools();
 					String jsonUrl = manager.getVideoUrl("http://v.youku.com/v_show/id_XNzg4NDEyNDQw_ev_1.html");
-					System.out.println(jsonUrl.split("#").length);
-					Log.i(".......", ""+jsonUrl.split("#"));
+					System.out.println(jsonUrl);
+					
 				} catch (JSONException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
